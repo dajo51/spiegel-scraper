@@ -1,17 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 from bs4 import BeautifulSoup
 import urllib.request
 import time as t
 import json
 import csv
-
-
-# In[5]:
 
 
 issues_links = []
@@ -33,22 +24,15 @@ for year in range(2000, 2022):
         # print out information as checkpoint 
         print("Issue", issue, year, "added! Time needed to scrape articles:", round((5*len(article_list)/60), 2), "minutes")
         print("Total articles:", len(article_list))
-        #t.sleep(1)
-
-
-# In[2]:
-
+        t.sleep(5)
 
 # read article list from file
 article_list = []
 with open('article_links_complete.csv', newline='') as csvfile:
     article_list = list(csv.reader(csvfile))
     
+# check if load succeeded
 print(len(article_list))
-
-
-# In[ ]:
-
 
 # save article links to csv
 print(len(article_list))
@@ -56,10 +40,6 @@ print(len(article_list))
 with open("article_links_test.csv", "w", encoding='UTF8', newline='') as f:
     writer = csv.writer(f)
     writer.writerows(article_list)
-
-
-# In[3]:
-
 
 data = {}
 article_id = 1
@@ -97,11 +77,7 @@ for i in article_list[88977:]:
     }
     data[article_id] = article_data
     print("Artikel", article_id, "hinzugefügt")
-    #t.sleep(1)
-
-
-# In[4]:
-
+    t.sleep(5)
 
 # save data into utf-8 json
 with open('data_test_rest.json', 'w', encoding='utf8') as f:
