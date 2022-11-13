@@ -1,5 +1,6 @@
 import urllib.request
 import csv
+import json
 import datetime
 import time as t
 from bs4 import BeautifulSoup
@@ -45,7 +46,8 @@ def save_article_links_to_csv(article_links: list, path="./article_links.csv") -
         path (str, optional): path for csv file. Defaults to "./article_links.csv".
     """
     with open(path, "w", encoding="UTF8", newline="") as f:
-        csv.writer(f).writerows(article_links)
+        writer = csv.writer(f)
+        writer.writerows(article_links)
 
 
 def read_article_links_from_csv(path="./article_links.csv") -> list:
@@ -91,3 +93,13 @@ class Article:
         self.author = article_soup.find("meta", {"name": "author"})["content"]
         # self.title = article_link.article_title
         self.description = article_soup.find("meta", {"name": "description"})["content"]
+
+    def to_dict(self) -> dict:
+        return {
+            "link": self.link,
+            "publishing_date": self.publishing_date,
+            "keywords": self.keywords,
+            "author": self.author,
+            "description": self.description,
+            "body": self.body,
+        }

@@ -1,6 +1,0 @@
-scraper_wait: 5
-scraper_start_year: 2005
-scraper_end_year: 2005
-# standard parameters for full year
-scraper_start_issue: 1
-scraper_end_issue: 1

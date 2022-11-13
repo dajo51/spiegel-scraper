@@ -1,0 +1,16 @@
+# Time in seconds the scraper will wait between each request (int)
+scraper_wait: 5
+# Years to scrape (int)
+scraper_start_year: 2000
+scraper_end_year: 2000
+# standard parameters for full year (int)
+scraper_start_issue: 1
+scraper_end_issue: 54
+# Save article_links to csv file (boolean)
+scraper_save_article_links_to_csv: true
+# Path to csv (string)
+scraper_csv_path: "./article_links.csv"
+# Should scraper log information? (boolean)
+scraper_log: true
+# Toggles the dialog at the beginning of the scraper (boolean)
+scraper_dialog: true
